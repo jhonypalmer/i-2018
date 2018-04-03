@@ -1,0 +1,7 @@
+Ementa - Integração de Aplicações
+Definição de integração de aplicações. 
+Desafios de integração. Abordagens de integração 
+(transferência de arquivos, bases de dados compartilhadas, 
+chamada de procedimento remoto e troca de mensagens).
+Padrões para integração de aplicações.
+
