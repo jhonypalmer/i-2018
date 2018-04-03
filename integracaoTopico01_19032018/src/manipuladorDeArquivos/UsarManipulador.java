@@ -33,5 +33,31 @@ public class UsarManipulador {
         } else {
             System.out.println("\n"+lerArquivo);
         }
+        
+        //ARQUIVOS BINARIOS
+        String caminhoBin = "arquivoBin.bin";
+        //String textoBin = "";
+        String textoBin = "Visão geral\n" +
+                          "A disciplina é de natureza prática e concentra-se \n" +
+                          "em aspectos técnicos relevantes para a integração \n" +
+                          "de aplicações, que é um tópico corrente e típico \n" + 
+                          "de organizações que produzem e fazem uso de software. \n";
+                          
+        
+        //CRIAR ARQUIVO BINARIO
+        if(ManipularArquivos.CriarArquivoBin(caminhoBin, textoBin)) {
+            System.out.println("Arquivo Binário Criado - ArqBin\n");
+        } else {
+            System.out.println("Erro ao Criar Arquivo Binário!");
+        }
+        
+        //LER ARQUIVO BINARIO
+        
+        String lerArquivoBin = ManipularArquivos.LerArquivoBin(caminhoBin);
+        if(lerArquivoBin.isEmpty()){
+            System.out.println("Arquivo Binário vazio!");
+        } else {
+            System.out.println("\n"+lerArquivoBin);
+        }
     }
 }
