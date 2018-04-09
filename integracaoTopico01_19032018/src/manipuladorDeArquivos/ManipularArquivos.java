@@ -11,6 +11,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.ProcessBuilder.Redirect.Type.WRITE;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import static java.nio.file.StandardOpenOption.CREATE;
 
 public class ManipularArquivos {
     
@@ -83,20 +89,42 @@ public class ManipularArquivos {
     
     public static String LerArquivoBin(String caminhoBin) {
         
-        String textoBin = "";
+        String conteudoBin = "";
         try {
         
             FileInputStream fin = new FileInputStream(caminhoBin);
             DataInputStream din = new DataInputStream(fin);
             
-            textoBin = din.readUTF();
-            return textoBin;
+            conteudoBin = din.readUTF();
+            return conteudoBin;
                         
         } catch( IOException e ){
             //System.out.println("Error: " + e.getMessage());
-            return textoBin;
+            return conteudoBin;
+        }        
+    }
+    
+    /*public static Boolean CriarArquivoBuffer(String caminho, String conteudo) {
+        
+        try {
+        
+            Path arquivo = Paths.get(caminho);
+            int valor = Integer.parseInt(conteudo);
+
+            ByteBuffer buffer = ByteBuffer.allocate(10);
+            buffer.putInt(valor);
+            buffer.flip();
+
+            FileChannel fc = FileChannel.open(arquivo, CREATE, WRITE);
+            fc.write(buffer);
+            fc.close();
+            
+            return true;
+        
+        } catch ( IOException e ) {
+            return false;
         }
         
-    }
+    }*/
         
 }
